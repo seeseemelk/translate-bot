@@ -29,7 +29,7 @@ public class EventListener
 	@SubscribeEvent
 	public void onMessageReceived(MessageReceivedEvent event)
 	{
-		if (event.getChannel().getName().startsWith(channelPrefix))
+		if (event.getChannel().getName().startsWith(channelPrefix) && !event.getAuthor().equals(event.getJDA().getSelfUser()))
 		{
 			Message message = event.getMessage();
 			String content = message.getContentStripped();
